@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="index.css">
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.879.0.min.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+    <script src="apiGateway-js-sdk/index.js"></script>
+
+
+  </head>
+
+  <body>
+        <div id="SearchBar">
+                <input name="query" id = "query" type="text" placeholder="Type any tags" autofocus>
+                <button type="button" id="searchTags" name="searchTags" onclick="searchByText()">Search</button>
+        </div>
+        <div id="logo"></div>
+        <div id="panel">
+            <div class = 'buttondiv'>
+                <button class="button-55" role="button"> Profile </button>
+            </div>
+            <div class = 'buttondiv'>
+                <button class="button-55" role="button"> Events </button>
+            </div>
+            <div class = 'buttondiv'>
+                <button class="button-55" role="button"> Buddies </button>
+            </div>
+            <div class = 'buttondiv'>
+                <button class="button-55" role="button"> Recommendations </button>
+            </div>
+            <div class = 'buttondiv'>
+                <button class="button-55" role="button"> Chat </button>
+            </div>
+        </div>
+
+        <div id="map" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPPXB9IVKQM5svThSpvN6jM2hKIov2gRg&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
