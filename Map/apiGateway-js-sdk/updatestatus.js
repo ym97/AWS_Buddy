@@ -7,6 +7,25 @@ function updateStatus() {
                 //Status is here
                 // Update the status in RDBMS
                     //ele[i].value
+
+                    //TODO Temporary userid using
+                    request = { 'eventID': }
+                    apigClient.updateeventstatusPost(queryString, {}, {})
+                        .then(function(result) {
+                            tags = result['data']['tags'];
+                            response = result['data']['events'];
+                            console.log(tags)
+                            console.log(response)
+                            if (!response){
+                               alert('No events found!')
+                            }
+                          else{
+                            createMapMarkers(response);
+                          }
+                        }).catch(function(result) {
+                            console.log(result);
+                        });
+
                 }
 
             }

@@ -83,6 +83,42 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.eventdetailsGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userID', 'eventID'], ['body']);
+        
+        var eventdetailsGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/eventdetails').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userID', 'eventID']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(eventdetailsGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.eventdetailsOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var eventdetailsOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/eventdetails').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(eventdetailsOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.searchallGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -116,6 +152,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(searchallOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.updateeventstatusPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userID', 'status', 'eventID'], ['body']);
+        
+        var updateeventstatusPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/updateeventstatus').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userID', 'status', 'eventID']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(updateeventstatusPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.updateeventstatusOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var updateeventstatusOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/updateeventstatus').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(updateeventstatusOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
 
