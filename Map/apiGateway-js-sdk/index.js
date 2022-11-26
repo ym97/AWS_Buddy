@@ -82,7 +82,7 @@ function updateLocation() {
                                         var lat = res.coords.latitude;
                                         var lng = res.coords.longitude;
                                         var updateOrNot = false;
-                                        if( typeof curr === 'undefined')
+                                        if( typeof curr === 'undefined'){
                                             updateOrNot = true;
                                         }
                                         else if( curr[0] !== lat || curr[1] !== lng){
