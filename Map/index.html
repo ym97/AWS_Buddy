@@ -18,7 +18,7 @@
     <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
     <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
     <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
-    <script src="apiGateway-js-sdk/index.js"></script>
+    <script src="apiGateway-js-sdk/index.js" defer></script>
 
     <title>Buddy</title>
 </head>
@@ -36,7 +36,7 @@
                 <button type="button" id="searchTags" name="searchTags" onclick="searchByText()">Search</button>
             </div>
             <div id = "showusername">
-<!--                <span id="displayusernamediv">username</span>-->
+                <span id="displayusernamediv"></span>
             </div>
             <div id="Logout">
                 <a onclick="logoutmaps()">

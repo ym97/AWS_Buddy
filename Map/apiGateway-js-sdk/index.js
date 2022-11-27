@@ -1,5 +1,201 @@
 var apigClient = apigClientFactory.newClient({});
-
+var mapstyle = [
+    {
+        "featureType": "all",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "weight": "2.00"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#9c9c9c"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#eeeeee"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#7b7b7b"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "weight": "1.57"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "weight": "4.81"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station.bus",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "weight": "4.81"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#46bcec"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#9fd7d4"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#070707"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    }
+]
 function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         console.log(url);
@@ -12,6 +208,7 @@ function getParameterByName(name, url) {
     }
 var username = getParameterByName('username');
 console.log('Found username:'+username);
+document.getElementById("displayusernamediv").innerHTML = username;
 //var temp = document.getElementById("displayusernamediv");
 //if(  !temp ){
 //   var tag = document.createElement("span");
@@ -135,9 +332,15 @@ function logoutmaps(){
 
 }
 function initMap() {
-            if ( curr.length === 0){
+            if ( typeof curr === 'undefined' ){
                     curr= [40.75442,-73.96879];
                     console.log('Centered to Manhattan');
+            }
+            //TODO Have some better way to handle this. Perhaps have an initial page? and only show this fucntion with buddies
+            else if (curr.length === 0 ){
+                    curr= [40.75442,-73.96879];
+                    console.log('Centered to Manhattan');
+
             }
             else{
                 console.log('Centered to user location');
@@ -145,6 +348,7 @@ function initMap() {
             const map = new google.maps.Map(document.getElementById("map"), {
                     zoom: 12,
                     center: { lat: curr[0] , lng: curr[1] },
+                    styles: mapstyle
               });
             apigClient.getalllocationsGet({}, {}, {})
                     .then(function(result) {
@@ -166,8 +370,8 @@ function initMap() {
 //                                console.log(username1);
 
                                 const icon = {
-                                                url: 'Images/buddy2.png', // url
-                                                scaledSize: new google.maps.Size(40, 40), // scaled size
+                                                url: 'Images/buddy3.png', // url
+                                                scaledSize: new google.maps.Size(60, 60), // scaled size
                                             };
                                 const marker = new google.maps.Marker({
                                   position,
@@ -222,6 +426,7 @@ function createMapMarkers(response) {
     const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: { lat: 40.75442 , lng: -73.96879 },
+    styles: mapstyle
     });
     var n = 0;
     var markers = []
@@ -237,12 +442,17 @@ function createMapMarkers(response) {
     const infoWindow_hover = new google.maps.InfoWindow();
     const infoWindow_event = new google.maps.InfoWindow();
     markers.forEach(([position, title, ID], i) => {
+            const icon = {
+                            url: 'Images/event.png', // url
+                            scaledSize: new google.maps.Size(65, 65), // scaled size
+                         };
             const marker = new google.maps.Marker({
               position,
               map,
               title: `${ID}:${title}`,
 //              label: `${ID}`,
               optimized: false,
+              icon:icon,
             });
 
             //Show Title when we hover
