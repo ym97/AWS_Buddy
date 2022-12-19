@@ -25,7 +25,7 @@
 <body>
 
 <div class="content">
-<div class="hello">Hello</br>Autumn!</div>
+<!-- <div class="hello">Hello</br>Autumn!</div> -->
 <div class="leaves">
   <div class="leaf1">🍁</div>
   <div class="leaf2">🍁</div>
@@ -39,26 +39,31 @@
   <div class="leaf11">🍁</div>
 </div>
 </div>
-    <div id="wrapper">
-        <div id="headerwrap" >
+    <div id="headerwrap" >
         <div id="header">
-            <div id="logo"></div>
+            BUDDY
+            
+            <a onclick="logoutmaps()" id="logout">
+                Logout
+            </a>
+            <span id="displayusernamediv"></span>
         </div>
+        <div id = "showusername">
+            
         </div>
+        <div id="Logout">
+            
+        </div>
+    </div>
+    <div id="wrapper">
+        
         <div id="navigationwrap">
         <div id="navigation">
             <div id="SearchBar" style="display: none" >
                 <input name="query" id = "query" type="text" placeholder="Type any tags" autofocus>
                 <button type="button" id="searchTags" name="searchTags" onclick="searchByText()">Search</button>
             </div>
-            <div id = "showusername">
-                <span id="displayusernamediv"></span>
-            </div>
-            <div id="Logout">
-                <a onclick="logoutmaps()">
-                    Logout
-                </a>
-            </div>
+            
 
         </div>
         </div>
@@ -88,11 +93,11 @@
                <div id="map" />
             </div>
         </div>
-        <div id="footerwrap">
+        <!-- <div id="footerwrap">
         <div id="footer">
             <p>This is the Footer</p>
         </div>
-        </div>
+        </div> -->
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPPXB9IVKQM5svThSpvN6jM2hKIov2gRg&callback=initMap&v=weekly"
           defer></script>
