@@ -779,7 +779,7 @@ function showProfile(){
     // Show our details
     // Update button
 }
-
+var myEventDateString;
 function eventContent( ID, name, details ){
     console.log(details);
     console.log(ID);
@@ -789,8 +789,8 @@ function eventContent( ID, name, details ){
                     '<h2>' +  name + '</h2>'+
                     '<h3>' + details['event_summary'] + '</h3>'+
                     '<h3>' + details['address'] + '</h3>'+
-                    '<h4>' + details['start_date'] + '</h4>'+
-                    '<h4>' + details['end_date'] + '</h4>'+
+//                    '<h4>' + details['start_date'] + '</h4>'+
+//                    '<h4>' + details['end_date'] + '</h4>'+
                     '<a href=\''+details['direction_url']+'\' target=\'_blank\' >Directions</a><br>'+
                     '<a href=\''+details['url']+'\'  target=\'_blank\' >Event Details</a>';
     var goingPpl = "";
@@ -808,9 +808,11 @@ function eventContent( ID, name, details ){
         content += '<h4> INTERESTED: ' + interestedPpl + '</h4>';
     }
     content += '</div>';
+    myEventDateString = details['start_date'];
+    content += '<div class="signboard outer" id="myCalendar" onclick="setDate()"><div class="signboard front inner anim04c"><li class="year anim04c"><span/></li><ul class="calendarMain anim04c"><li class="month anim04c"><span/></li><li class="date anim04c"><span/></li><li class="day anim04c"><span/></li></ul><li class="clock minute anim04c"><span/></li><li class="calendarNormal date2 anim04c"><span/></li></div><div class="signboard left inner anim04c"><li class="clock hour anim04c"><span/></li><li class="calendarNormal day2 anim04c"><span/></li></div><div class="signboard right inner anim04c"><li class="clock second anim04c"><span/></li><li class="calendarNormal month2 anim04c"><span/></li></div></div>';
     content += '<div id="UpdateStatus">'+
                 '<form action="/action_page.php">'+
-                '<p>I am </p>'+
+                '<p>Mark yourself!</p>'+
                     '<input type="radio" id="going" name="status" value="Going">Going'+
                     '<input type="radio" id="interested" name="status" value="Interested">Interested'+
                     '<input type="radio" id="notgoing" name="status" value="Not Going">Not Going'+
@@ -903,7 +905,7 @@ function searchAll(query) {
 function setDate() {
   var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
   var dayNames= [ "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" ];
-  var newDate = new Date(datestring);
+  var newDate = new Date(myEventDateString);
   var hours = newDate.getHours();
 	$(".hour").html(( hours < 10 ? "0" : "" ) + hours);
     var seconds = newDate.getSeconds();
@@ -916,5 +918,6 @@ function setDate() {
     $(".day span,.day2 span").text(dayNames[newDate.getDay()]);
     $(".year span").html(newDate.getFullYear());
 };
+
 
 window.initMap = initMap;
