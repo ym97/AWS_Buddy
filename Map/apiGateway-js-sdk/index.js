@@ -2,61 +2,7 @@ var apigClient = apigClientFactory.newClient({});
 var mapstyle = [
     {
         "featureType": "all",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "weight": "2.00"
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#9c9c9c"
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "labels.text",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#f2f2f2"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "all",
+        "elementType": "labels",
         "stylers": [
             {
                 "visibility": "off"
@@ -64,64 +10,37 @@ var mapstyle = [
         ]
     },
     {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "saturation": -100
-            },
-            {
-                "lightness": 45
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#eeeeee"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
+        "featureType": "all",
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "color": "#7b7b7b"
+                "saturation": 36
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 40
             }
         ]
     },
     {
-        "featureType": "road",
+        "featureType": "all",
         "elementType": "labels.text.stroke",
         "stylers": [
             {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
+                "visibility": "on"
+            },
             {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "geometry.fill",
-        "stylers": [
+                "color": "#000000"
+            },
             {
-                "weight": "1.57"
+                "lightness": 16
             }
         ]
     },
     {
-        "featureType": "road.arterial",
+        "featureType": "all",
         "elementType": "labels.icon",
         "stylers": [
             {
@@ -130,8 +49,35 @@ var mapstyle = [
         ]
     },
     {
-        "featureType": "transit",
-        "elementType": "all",
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "labels",
         "stylers": [
             {
                 "visibility": "off"
@@ -139,29 +85,224 @@ var mapstyle = [
         ]
     },
     {
-        "featureType": "transit.line",
-        "elementType": "geometry.fill",
+        "featureType": "administrative.province",
+        "elementType": "labels",
         "stylers": [
             {
-                "weight": "4.81"
+                "visibility": "off"
             }
         ]
     },
     {
-        "featureType": "transit.station.bus",
-        "elementType": "geometry.fill",
+        "featureType": "administrative.locality",
+        "elementType": "labels",
         "stylers": [
             {
-                "weight": "4.81"
+                "visibility": "off"
             }
         ]
     },
     {
-        "featureType": "water",
-        "elementType": "all",
+        "featureType": "administrative.neighborhood",
+        "elementType": "labels",
         "stylers": [
             {
-                "color": "#46bcec"
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 20
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#191919"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 21
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "1.08"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "2.12"
+            },
+            {
+                "hue": "#00ff95"
+            },
+            {
+                "saturation": "52"
+            },
+            {
+                "lightness": "34"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 18
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "0.68"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#373737"
+            },
+            {
+                "lightness": 16
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#252525"
+            },
+            {
+                "lightness": 19
             },
             {
                 "visibility": "on"
@@ -170,28 +311,16 @@ var mapstyle = [
     },
     {
         "featureType": "water",
-        "elementType": "geometry.fill",
+        "elementType": "geometry",
         "stylers": [
             {
-                "color": "#9fd7d4"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
-        "stylers": [
+                "color": "#0f0f0f"
+            },
             {
-                "color": "#070707"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels.text.stroke",
-        "stylers": [
+                "lightness": 17
+            },
             {
-                "color": "#ffffff"
+                "visibility": "on"
             }
         ]
     }
@@ -332,6 +461,7 @@ function logoutmaps(){
 
 }
 function initMap() {
+            document.getElementById('SearchBar').style.display ='none';
             if ( typeof curr === 'undefined' ){
                     curr= [40.75442,-73.96879];
                     console.log('Centered to Manhattan');
@@ -370,7 +500,7 @@ function initMap() {
 //                                console.log(username1);
 
                                 const icon = {
-                                                url: 'Images/buddy3.png', // url
+                                                url: 'Images/bud.png', // url
                                                 scaledSize: new google.maps.Size(60, 60), // scaled size
                                             };
                                 const marker = new google.maps.Marker({
@@ -422,6 +552,114 @@ function initMap() {
 
 }
 
+//This function has conditions from both buddy and event display. There is some overlap of functions!
+function createRecommendationMarkers(res_events, res_buddies){
+    const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 12,
+                    center: { lat: curr[0] , lng: curr[1] },
+                    styles: mapstyle
+                });
+
+    // Get details for the events and buddies from the recommendations
+    var n = 0;
+    var markers = []
+    while (n < res_events.length) {
+        event_ID = res_events[n]['id'];
+        event_name = res_events[n]['name'];
+        event_lat = res_events[n]['latitude'];
+        event_lon = res_events[n]['longitude'];
+        markers.push([{lat: event_lat, lng: event_lon}, [event_name, event_ID]])
+        n++;
+    }
+
+    n = 0;
+    while (n < res_buddies.length) {
+        username2 = res_buddies[n]['username'];
+        buddy_lat = Number(res_buddies[n]['latitude']);
+        buddy_lon = Number(res_buddies[n]['longitude']);
+        markers.push([{lat: buddy_lat, lng: buddy_lon}, [username2]])
+        n++;
+    }
+
+
+
+    // BUDDY Markers
+    console.log(markers);
+    const infoWindow_hover_rec = new google.maps.InfoWindow();
+    const infoWindow_rec = new google.maps.InfoWindow();
+    markers.forEach(([position, detailsList], i) => {
+
+            var isBuddy = false; //Event marker
+            var iconURL = 'Images/star.png';
+            var iconSize = 60;
+            if( detailsList.length == 1){
+                //BUDDY Marker
+                isBuddy = true;
+                iconURL = 'Images/bud.png';
+                iconSize = 65;
+            }
+
+            const icon = {
+                            url: iconURL, // url
+                            scaledSize: new google.maps.Size(iconSize, iconSize), // scaled size
+                         };
+            const marker = new google.maps.Marker({
+                  position,
+                  map,
+                  title: `${detailsList[0]}`,
+                  optimized: false,
+                  icon:icon,
+                });//Show Title when we hover
+            marker.addListener('mouseover', function() {
+            infoWindow_hover_rec.setContent(marker.getTitle());
+            infoWindow_hover_rec.open(marker.getMap(), marker);
+            });
+            // assuming you also want to hide the infowindow when user mouses-out
+            marker.addListener('mouseout', function() {
+                infoWindow_hover_rec.close();
+            });
+
+            //TODO ADD BUDDY DETAILS.
+
+            // Add a click listener for each marker, and set up the info window.
+            marker.addListener("click", () => {
+
+                if( isBuddy ){
+                    var queryString = {'userID' : detailsList[0] };
+                    console.log(queryString);
+                    var details = {};
+                    apigClient.buddydetailsGet(queryString, {}, {})
+                        .then(function(result) {
+                            details = result['data'];
+                            console.log(details);
+                            buddyContentPage = buddyContent(detailsList[0],details);
+                            infoWindow_rec.close();
+                            infoWindow_rec.setContent(buddyContentPage);
+                            infoWindow_rec.open(marker.getMap(), marker);
+                        }).catch(function(result) {
+                            console.log(result);
+                        });
+                }
+                else{
+                    var queryString = {'eventID' : detailsList[1], 'userID': username };
+                    console.log(queryString);
+                    var details = {};
+                    apigClient.eventdetailsGet(queryString, {}, {})
+                        .then(function(result) {
+                            details = result['data'];
+                            console.log(details);
+                            eventContentPage = eventContent(detailsList[1],detailsList[0],details);
+                            infoWindow_rec.close();
+                            infoWindow_rec.setContent(eventContentPage);
+                            infoWindow_rec.open(marker.getMap(), marker);
+                        }).catch(function(result) {
+                            console.log(result);
+                        });
+                }
+
+            });
+   });
+}
 function createMapMarkers(response) {
     const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
@@ -443,7 +681,7 @@ function createMapMarkers(response) {
     const infoWindow_event = new google.maps.InfoWindow();
     markers.forEach(([position, title, ID], i) => {
             const icon = {
-                            url: 'Images/event.png', // url
+                            url: 'Images/star.png', // url
                             scaledSize: new google.maps.Size(65, 65), // scaled size
                          };
             const marker = new google.maps.Marker({
@@ -492,14 +730,44 @@ function createMapMarkers(response) {
 
 function showAllEvents(){
     document.getElementById('SearchBar').style.display ='block';
-    //TODO Fetch n random events and mark them to map.
-    //Now that the searchBar is activated, we can fetch the required events and display their markers.
+    //Show recommendations for events and buddies. Same functionalities.
+    apigClient.randomeventsGet({}, {}, {})
+        .then(function(result) {
+            rand_events = result['data']['events'];
+            console.log(rand_events)
+            if (!response){
+               alert('No events found nearby!')
+            }
+          else{
+            createMapMarkers(rand_events);
+          }
+        }).catch(function(result) {
+            console.log(result);
+        });
+
 }
 function showRecommendations(){
     document.getElementById('SearchBar').style.display ='none';
-
-    //TODO Fetch recommendations
     //Show recommendations for events and buddies. Same functionalities.
+    var queryString = { 'username': username };
+    console.log(queryString)
+    apigClient.recommendationsGet(queryString, {}, {})
+        .then(function(result) {
+            console.log(result);
+            rec_events = result['data']['event_list'];
+            rec_buddies = result['data']['buddy_list'];
+            console.log(rec_events)
+            console.log(rec_buddies)
+            if (rec_buddies.length === 0 && rec_events.length===0){
+               alert('No enough data to suggest recommendations. Pls fill your interests or start searching for events!')
+            }
+          else{
+            createRecommendationMarkers(rec_events, rec_buddies);
+          }
+        }).catch(function(result) {
+            console.log(result);
+        });
+
 }
 function showShops(){
     document.getElementById('SearchBar').style.display ='none';
@@ -516,7 +784,7 @@ function eventContent( ID, name, details ){
     console.log(details);
     console.log(ID);
     console.log(name);
-    var content = '<div id="eventPopup">'+
+    var content = '<div class ="popup" id="eventID_popup_total"><div id="eventPopup">'+
                     '<h3 id="eventID_popup">' + ID + '</h2>'+
                     '<h2>' +  name + '</h2>'+
                     '<h3>' + details['event_summary'] + '</h3>'+
@@ -548,14 +816,14 @@ function eventContent( ID, name, details ){
                     '<input type="radio" id="notgoing" name="status" value="Not Going">Not Going'+
                 '</form>'+
                 '<button type="button" id="updatestatusbutton" onclick="updateStatus()">Update</button>'+
-              '</div>';
+              '</div></div>';
     return content;
 }
 
 function buddyContent( username1, details ){
     console.log(details);
     console.log(username1);
-    var content = '<div id="buddyPopup">'+
+    var content = '<div id="buddyPopup" class = "popup" >'+
                     '<h2 id="buddyName_popup">' + username1 + '</h2>'+
                     '<h3>Age: ' + details['age'] + '</h3>'+
                     '<h3>Description: ' + details['description'] + '</h3>'+
@@ -586,6 +854,7 @@ function buddyContent( username1, details ){
 function updateStatus() {
     var ele = document.getElementsByName('status');
     var eventID = document.getElementById('eventID_popup').innerHTML.trim();
+    document.getElementById('eventID_popup_total').style.display = "none"
     console.log('haha');
     console.log(eventID);
     for(i = 0; i < ele.length; i++) {
@@ -601,6 +870,7 @@ function updateStatus() {
             apigClient.updateeventstatusPost(queryString, {}, {})
                 .then(function(result) {
                     console.log(result);
+                    alert('Updated status!');
                 }).catch(function(result) {
                     console.log(result);
                 });
@@ -610,7 +880,7 @@ function updateStatus() {
 
 function searchAll(query) {
     console.log(query)
-    var queryString = {'q' : query };
+    var queryString = {'q' : query, 'username': username };
     console.log(queryString)
     apigClient.searchallGet(queryString, {}, {})
         .then(function(result) {
@@ -618,6 +888,7 @@ function searchAll(query) {
             response = result['data']['events'];
             console.log(tags)
             console.log(response)
+            document.getElementById('query').value = "";
             if (!response){
                alert('No events found!')
             }
@@ -628,4 +899,22 @@ function searchAll(query) {
             console.log(result);
         });
 }
+
+function setDate() {
+  var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+  var dayNames= [ "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" ];
+  var newDate = new Date(datestring);
+  var hours = newDate.getHours();
+	$(".hour").html(( hours < 10 ? "0" : "" ) + hours);
+    var seconds = newDate.getSeconds();
+	$(".second").html(( seconds < 10 ? "0" : "" ) + seconds);
+    var minutes = newDate.getMinutes();
+	$(".minute").html(( minutes < 10 ? "0" : "" ) + minutes);
+
+    $(".month span,.month2 span").text(monthNames[newDate.getMonth()]);
+    $(".date span,.date2 span").text(newDate.getDate());
+    $(".day span,.day2 span").text(dayNames[newDate.getDay()]);
+    $(".year span").html(newDate.getFullYear());
+};
+
 window.initMap = initMap;

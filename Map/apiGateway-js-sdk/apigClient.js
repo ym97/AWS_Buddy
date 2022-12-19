@@ -191,16 +191,88 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.randomeventsGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var randomeventsGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/randomevents').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(randomeventsGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.randomeventsOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var randomeventsOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/randomevents').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(randomeventsOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendationsGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['username'], ['body']);
+        
+        var recommendationsGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendations').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['username']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendationsGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendationsOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var recommendationsOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendations').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendationsOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.searchallGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['q'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['username', 'q'], ['body']);
         
         var searchallGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/searchall').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['q']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['username', 'q']),
             body: body
         };
         
