@@ -775,9 +775,21 @@ function showShops(){
 }
 function showProfile(){
     document.getElementById('SearchBar').style.display ='none';
+
     //TODO details and update buttons
-    // Show our details
-    // Update button
+    var queryString = {'userID' : username };
+    console.log(queryString);
+    var details = {};
+    apigClient.buddydetailsGet(queryString, {}, {})
+        .then(function(result) {
+            details = result['data'];
+            console.log(details);
+            profilePage = buddyContent(username,details);
+            document.getElementById('map').innerHTML = profilePage;
+        }).catch(function(result) {
+            console.log(result);
+        });
+
 }
 var myEventDateString;
 function eventContent( ID, name, details ){
