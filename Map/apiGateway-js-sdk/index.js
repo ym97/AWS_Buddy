@@ -918,17 +918,34 @@ function setDate() {
   var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
   var dayNames= [ "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" ];
   var newDate = new Date(myEventDateString);
-  var hours = newDate.getHours();
+
+  //  Temporary handler
+  var tempCheck = new Date();
+  if (tempCheck > newDate ){
+       console.log('Temp handler');
+       var add = Math.random() * (10 - 2) + 2;
+       tempCheck.setDate(tempCheck.getDate() + add);
+  }
+  else{
+    tempCheck = newDate;
+  }
+
+    var hours = newDate.getHours();
 	$(".hour").html(( hours < 10 ? "0" : "" ) + hours);
     var seconds = newDate.getSeconds();
 	$(".second").html(( seconds < 10 ? "0" : "" ) + seconds);
     var minutes = newDate.getMinutes();
 	$(".minute").html(( minutes < 10 ? "0" : "" ) + minutes);
 
-    $(".month span,.month2 span").text(monthNames[newDate.getMonth()]);
-    $(".date span,.date2 span").text(newDate.getDate());
-    $(".day span,.day2 span").text(dayNames[newDate.getDay()]);
-    $(".year span").html(newDate.getFullYear());
+//    Using the tempCheck to populate the date and not time
+    $(".month span,.month2 span").text(monthNames[tempCheck.getMonth()]);
+    $(".date span,.date2 span").text(tempCheck.getDate());
+    $(".day span,.day2 span").text(dayNames[tempCheck.getDay()]);
+    $(".year span").html(tempCheck.getFullYear());
+//    $(".month span,.month2 span").text(monthNames[newDate.getMonth()]);
+//    $(".date span,.date2 span").text(newDate.getDate());
+//    $(".day span,.day2 span").text(dayNames[newDate.getDay()]);
+//    $(".year span").html(newDate.getFullYear());
 };
 
 

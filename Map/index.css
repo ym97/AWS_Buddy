@@ -144,6 +144,15 @@ p {
               color: #FFFFFF;
               font-size: 15px;
 }
+a:link {
+  color: white;
+  background-color: transparent;
+}
+
+a:visited {
+  color: yellow;
+  background-color: transparent;
+}
 
 .buttondiv {
   height:100px;
